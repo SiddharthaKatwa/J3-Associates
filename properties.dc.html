@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  select{font-family:'Work Sans',sans-serif;}
+</style>
+<script src="./image-slot.js"></script>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#faf8f4"/><circle cx="100" cy="100" r="70" fill="none" stroke="#1a1a1a" stroke-width="6"/><text x="100" y="122" font-family="Georgia, serif" font-size="64" font-weight="700" text-anchor="middle" fill="#a3221f">J3</text></svg>
+</template>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;background:oklch(97% 0.006 85);color:oklch(16% 0.01 30);overflow-x:hidden;">
+
+  <header style="position:sticky;top:0;z-index:50;background:oklch(97% 0.006 85 / 0.92);backdrop-filter:blur(14px);border-bottom:1px solid oklch(88% 0.02 80);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:18px 5vw;">
+    <a href="index.dc.html" style="display:flex;align-items:center;gap:14px;">
+      <image-slot id="logo-mark" src="./assets/j3-logo-transparent.png" shape="rect" style="width:46px;height:46px;flex:none;" fit="contain" placeholder="Logo"></image-slot>
+      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:600;letter-spacing:0.03em;">J3 <span style="color:oklch(38% 0.16 25);">Associates</span></span>
+    </a>
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:34px;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">
+      <a href="index.dc.html" style-hover="color:oklch(38% 0.16 25);">Home</a>
+      <a href="about.dc.html" style-hover="color:oklch(38% 0.16 25);">About</a>
+      <a href="services.dc.html" style-hover="color:oklch(38% 0.16 25);">Services</a>
+      <a href="properties.dc.html" style="color:oklch(38% 0.16 25);border-bottom:2px solid oklch(38% 0.16 25);padding-bottom:4px;">Properties</a>
+      <a href="blog.dc.html" style-hover="color:oklch(38% 0.16 25);">Blog</a>
+      <a href="contact.dc.html" style-hover="color:oklch(38% 0.16 25);">Contact</a>
+    </nav>
+    <a href="contact.dc.html" style="border:1px solid oklch(38% 0.16 25);color:oklch(38% 0.16 25);padding:11px 24px;border-radius:2px;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;" style-hover="background:oklch(38% 0.16 25);color:white;">Enquire</a>
+  </header>
+
+  <section style="padding:80px 5vw 32px;text-align:center;">
+    <p style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:oklch(38% 0.16 25);margin:0 0 14px;">Curated Portfolio</p>
+    <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,5vw,52px);font-weight:600;margin:0 auto;max-width:760px;">Signature addresses, <em style="color:oklch(38% 0.16 25);font-style:italic;">handpicked.</em></h1>
+    <p style="font-size:16px;color:oklch(42% 0.02 60);max-width:600px;margin:20px auto 0;">A handpicked selection of premium residences, builder floors, plots and commercial spaces - matched to your lifestyle, goals and budget.</p>
+  </section>
+
+  <section style="padding:0 5vw 24px;max-width:1300px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;">
+    <select value="{{ fLocation }}" onChange="{{ onLocationChange }}" style="padding:12px 16px;border:1px solid oklch(85% 0.008 90);border-radius:2px;font-size:14px;background:oklch(99% 0.002 90);min-width:160px;">
+      <option value="all">City: All</option>
+      <sc-for list="{{ cities }}" as="c" hint-placeholder-count="11">
+        <option value="{{ c }}">{{ c }}</option>
+      </sc-for>
+    </select>
+    <select value="{{ fType }}" onChange="{{ onTypeChange }}" style="padding:12px 16px;border:1px solid oklch(85% 0.008 90);border-radius:2px;font-size:14px;background:oklch(99% 0.002 90);min-width:160px;">
+      <option value="all">Type: All</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Builder Floor">Builder Floor</option>
+      <option value="Villa">Villa</option>
+      <option value="Plot">Plot</option>
+      <option value="Commercial">Commercial</option>
+    </select>
+    <select value="{{ fBhk }}" onChange="{{ onBhkChange }}" style="padding:12px 16px;border:1px solid oklch(85% 0.008 90);border-radius:2px;font-size:14px;background:oklch(99% 0.002 90);min-width:140px;">
+      <option value="all">BHK: All</option>
+      <option value="1">1 BHK</option>
+      <option value="2">2 BHK</option>
+      <option value="3">3 BHK</option>
+      <option value="4">4 BHK</option>
+      <option value="5">5 BHK</option>
+      <option value="6">6+ BHK</option>
+    </select>
+    <select value="{{ fBudget }}" onChange="{{ onBudgetChange }}" style="padding:12px 16px;border:1px solid oklch(85% 0.008 90);border-radius:2px;font-size:14px;background:oklch(99% 0.002 90);min-width:170px;">
+      <option value="all">Budget: Any</option>
+      <option value="under1">Under &#8377;1 Cr</option>
+      <option value="1-3">&#8377;1 &ndash; 3 Cr</option>
+      <option value="3-5">&#8377;3 &ndash; 5 Cr</option>
+      <option value="5plus">&#8377;5 Cr+</option>
+    </select>
+  </section>
+
+  <section style="padding:0 5vw 16px;max-width:1300px;margin:0 auto;font-size:14px;color:oklch(50% 0.01 90);">Showing {{ visibleCount }} of {{ totalCount }} properties</section>
+
+  <section style="padding:0 5vw 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;max-width:1300px;margin:0 auto;">
+    <sc-for list="{{ filtered }}" as="p" hint-placeholder-count="6">
+      <div>
+        <div style="position:relative;overflow:hidden;width:100%;height:280px;border-radius:4px;box-shadow:0 24px 48px -24px oklch(20% 0.02 30 / 0.35);">
+          <image-slot id="{{ p.slotId }}" src="{{ p.photo }}" shape="rounded" radius="4" style="width:100%;height:100%;" placeholder="{{ p.title }} photo"></image-slot>
+          <div style="position:absolute;inset:0;background:linear-gradient(120deg,oklch(100% 0 0 / 0.24) 0%,transparent 28%,transparent 70%,oklch(20% 0.02 30 / 0.16) 100%);pointer-events:none;"></div>
+          <div style="position:absolute;top:14px;left:14px;display:flex;gap:8px;">
+            <span style="background:oklch(38% 0.16 25 / 0.9);color:white;font-size:11px;font-weight:600;letter-spacing:0.04em;padding:5px 10px;border-radius:2px;">{{ p.type }}</span>
+            <sc-if value="{{ p.bhk }}" hint-placeholder-val="{{ false }}"><span style="background:oklch(20% 0.02 30 / 0.75);color:white;font-size:11px;font-weight:600;padding:5px 10px;border-radius:2px;">{{ p.bhk }} BHK</span></sc-if>
+          </div>
+        </div>
+        <p style="font-size:13px;color:oklch(38% 0.16 25);font-weight:600;margin:18px 0 4px;">{{ p.area }}</p>
+        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:600;margin:0 0 8px;">{{ p.title }}</h3>
+        <p style="font-size:15px;font-weight:600;color:oklch(16% 0.01 30);margin:0 0 4px;">{{ p.price }}</p>
+        <p style="font-size:13.5px;color:oklch(50% 0.01 90);margin:0 0 12px;">{{ p.sqftDisplay }}</p>
+        <a href="{{ p.waLink }}" target="_blank" style="font-weight:600;font-size:14px;border-bottom:2px solid oklch(38% 0.16 25);padding-bottom:3px;">Enquire on WhatsApp &rarr;</a>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="padding:80px 5vw;background:oklch(94% 0.008 85);">
+    <p style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:oklch(38% 0.16 25);margin:0 0 14px;text-align:center;">Our Developer Partners</p>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,3.6vw,36px);font-weight:600;margin:0 0 20px;text-align:center;">Trusted alliances with NCR's finest builders.</h2>
+    <p style="text-align:center;font-size:15.5px;color:oklch(42% 0.02 60);max-width:600px;margin:0 auto 48px;">We work directly with leading developers to bring you privileged access to signature residences and pre-launch inventory.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;max-width:1100px;margin:0 auto;">
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-1" src="./assets/partner-1.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-2" src="./assets/partner-2.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-3" src="./assets/partner-3.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-4" src="./assets/partner-4.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-5" src="./assets/partner-5.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-6" src="./assets/partner-6.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-7" src="./assets/partner-7.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+      <div style="position:relative;width:100%;height:100px;background:oklch(99% 0.003 85);border-radius:4px;box-shadow:0 12px 28px -16px oklch(20% 0.02 30 / 0.25);display:flex;align-items:center;justify-content:center;padding:12px;"><image-slot id="partner-8" src="./assets/partner-8.jpg" shape="rect" fit="contain" style="width:100%;height:100%;" placeholder="Partner logo"></image-slot></div>
+    </div>
+  </section>
+
+  <section style="padding:96px 5vw;text-align:center;">
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,3.6vw,36px);font-weight:600;margin:0 0 24px;">Don't see what you're looking for?</h2>
+    <p style="font-size:16px;color:oklch(42% 0.02 60);margin:0 0 32px;">Tell us your requirement - we have off-market inventory not listed here.</p>
+    <a href="contact.dc.html" style="background:oklch(38% 0.16 25);color:white;padding:16px 30px;border-radius:2px;font-weight:600;font-size:15px;" style-hover="background:oklch(30% 0.16 25);">Enquire Now</a>
+  </section>
+
+  <footer style="background:oklch(16% 0.01 30);color:oklch(85% 0.005 90);padding:64px 5vw 24px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:1300px;margin:0 auto 40px;">
+      <div>
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:600;color:white;margin:0 0 12px;">J3 Associates</p>
+        <p style="font-size:14px;line-height:1.7;color:oklch(70% 0.005 90);max-width:240px;">A boutique real-estate advisory representing landmark residences and investment-grade properties across Faridabad &amp; NCR.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:white;margin:0 0 16px;">Quick Links</p>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:oklch(75% 0.005 90);">
+          <a href="about.dc.html" style-hover="color:white;">About</a>
+          <a href="services.dc.html" style-hover="color:white;">Services</a>
+          <a href="properties.dc.html" style-hover="color:white;">Properties</a>
+          <a href="blog.dc.html" style-hover="color:white;">Blog</a>
+          <a href="contact.dc.html" style-hover="color:white;">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:white;margin:0 0 16px;">Reach Us</p>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:oklch(75% 0.005 90);">
+          <a href="tel:+919873231363">+91 98732 31363</a>
+          <a href="mailto:thej3associates@gmail.com">thej3associates@gmail.com</a>
+          <span>J3 Associates, F Block, F-19, BPTP Parklands, Sector 88, Faridabad, Haryana 121002</span>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=J3+Associates+F+Block+F-19+BPTP+Parklands+Sector+88+Faridabad+Haryana+121002" target="_blank" style-hover="color:white;">Get Directions &rarr;</a>
+        </div>
+        <div style="display:flex;gap:14px;margin-top:18px;">
+          <a href="https://www.facebook.com/share/1DWyGYcohU/" target="_blank" title="Facebook" style="width:36px;height:36px;border-radius:50%;background:oklch(30% 0.01 30);display:flex;align-items:center;justify-content:center;" style-hover="background:oklch(38% 0.16 25);"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.1l.4-3H13v-1.2c0-.5.3-.8.5-.8Z"/></svg></a>
+          <a href="https://www.instagram.com/the_j3_associates?igsh=Znk3cXoxdHA2ZG9u" target="_blank" title="Instagram" style="width:36px;height:36px;border-radius:50%;background:oklch(30% 0.01 30);display:flex;align-items:center;justify-content:center;" style-hover="background:oklch(38% 0.16 25);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="white" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/@thej3associates" target="_blank" title="YouTube" style="width:36px;height:36px;border-radius:50%;background:oklch(30% 0.01 30);display:flex;align-items:center;justify-content:center;" style-hover="background:oklch(38% 0.16 25);"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M23 12s0-3.4-.4-5A3 3 0 0 0 20.5 5C18.9 4.7 12 4.7 12 4.7s-6.9 0-8.5.3A3 3 0 0 0 1.4 7C1 8.6 1 12 1 12s0 3.4.4 5a3 3 0 0 0 2.1 2c1.6.3 8.5.3 8.5.3s6.9 0 8.5-.3a3 3 0 0 0 2.1-2c.4-1.6.4-5 .4-5ZM9.8 15.5v-7l6 3.5Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid oklch(30% 0.005 90);max-width:1300px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:oklch(60% 0.005 90);">
+      <span>&copy; 2026 J3 Associates. All rights reserved.</span>
+      <span style="display:flex;gap:16px;align-items:center;">Faridabad, Haryana<a href="admin.dc.html" style="color:oklch(50% 0.005 90);" style-hover="color:white;">Admin Login</a></span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919873231363" target="_blank" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;width:58px;height:58px;border-radius:50%;background:oklch(58% 0.16 145);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px oklch(0% 0 0 / 0.3);z-index:60;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.2 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+  </a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { all: [], fLocation: 'all', fType: 'all', fBhk: 'all', fBudget: 'all' };
+
+  componentDidMount() {
+    import('./properties-data.js').then((mod) => {
+      this.setState({ all: mod.loadProperties(), mod });
+    });
+  }
+
+  renderVals() {
+    const mod = this.state.mod;
+    const all = this.state.all.map((p) => ({
+      ...p,
+      slotId: 'prop-' + p.id,
+      price: mod ? mod.priceLabel(p) : '',
+      sqftDisplay: mod ? mod.sqftLabel(p) : '',
+      bucket: mod ? mod.budgetBucket(p) : '',
+      waLink: 'https://wa.me/919873231363?text=' + encodeURIComponent("Hi, I'd like to enquire about " + p.title + ' (' + p.area + ').'),
+    }));
+    const filtered = all.filter((p) => {
+      if (this.state.fLocation !== 'all' && p.location !== this.state.fLocation) return false;
+      if (this.state.fType !== 'all' && p.type !== this.state.fType) return false;
+      if (this.state.fBhk !== 'all' && String(p.bhk) !== this.state.fBhk) return false;
+      if (this.state.fBudget !== 'all' && p.bucket !== this.state.fBudget) return false;
+      return true;
+    });
+    return {
+      filtered,
+      visibleCount: filtered.length,
+      totalCount: all.length,
+      cities: mod ? mod.NCR_CITIES : [],
+      fLocation: this.state.fLocation,
+      fType: this.state.fType,
+      fBhk: this.state.fBhk,
+      fBudget: this.state.fBudget,
+      onLocationChange: (e) => this.setState({ fLocation: e.target.value }),
+      onTypeChange: (e) => this.setState({ fType: e.target.value }),
+      onBhkChange: (e) => this.setState({ fBhk: e.target.value }),
+      onBudgetChange: (e) => this.setState({ fBudget: e.target.value }),
+    };
+  }
+}
+</script>
+</body>
+</html>
